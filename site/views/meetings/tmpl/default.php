@@ -38,21 +38,17 @@ $canDelete  = $user->authorise('core.delete', 'com_cnrprojectmeeting');
 	<table class="table table-striped" id="meetingList">
 		<thead>
 		<tr>
-			<?php if (isset($this->items[0]->state)): ?>
-				<th width="5%">
-	<?php echo JHtml::_('grid.sort', 'JPUBLISHED', 'a.state', $listDirn, $listOrder); ?>
-</th>
-			<?php endif; ?>
 
-							<th class=''>
+
+        <th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_CNRPROJECTMEETING_MEETINGS_TITLE', 'a.title', $listDirn, $listOrder); ?>
 				</th>
-				<th class=''>
+        <th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_CNRPROJECTMEETING_MEETINGS_STARTDATE', 'a.startdate', $listDirn, $listOrder); ?>
 				</th>
-				<th class=''>
+				<!--<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_CNRPROJECTMEETING_MEETINGS_ENDDATE', 'a.enddate', $listDirn, $listOrder); ?>
-				</th>
+				</th>-->
 				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_CNRPROJECTMEETING_MEETINGS_HOST', 'a.host', $listDirn, $listOrder); ?>
 				</th>
@@ -86,35 +82,23 @@ $canDelete  = $user->authorise('core.delete', 'com_cnrprojectmeeting');
 
 			<tr class="row<?php echo $i % 2; ?>">
 
-				<?php if (isset($this->items[0]->state)) : ?>
-					<?php $class = ($canChange) ? 'active' : 'disabled'; ?>
-					<td class="center">
-	<a class="btn btn-micro <?php echo $class; ?>" href="<?php echo ($canChange) ? JRoute::_('index.php?option=com_cnrprojectmeeting&task=meeting.publish&id=' . $item->id . '&state=' . (($item->state + 1) % 2), false, 2) : '#'; ?>">
-	<?php if ($item->state == 1): ?>
-		<i class="icon-publish"></i>
-	<?php else: ?>
-		<i class="icon-unpublish"></i>
-	<?php endif; ?>
-	</a>
-</td>
-				<?php endif; ?>
 
-								<td>
+
+				<td>
 				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
 					<?php echo JHtml::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'meetings.', $canCheckin); ?>
 				<?php endif; ?>
 				<a href="<?php echo JRoute::_('index.php?option=com_cnrprojectmeeting&view=meeting&id='.(int) $item->id); ?>">
 				<?php echo $this->escape($item->title); ?></a>
 				</td>
-				<td>
-
+        <td>
+<?php
+	$datefrom = date_create($item->startdate);
+	$dateto = date_create($item->enddate);
+	echo date_format($datefrom, 'jS ') ."-". date_format($dateto, 'jS F Y');
+?>
 					<?php echo $item->startdate; ?>
 				</td>
-				<td>
-
-					<?php echo $item->enddate; ?>
-				</td>
-				<td>
 
 					<?php echo $item->host; ?>
 				</td>
