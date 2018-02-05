@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_CNRPROJECTMEETING_TITLE_LIST_VIEW_MEETINGS" option="View">
+        <message>
+                        <![CDATA[COM_CNRPROJECTMEETING_TITLE_LIST_VIEW_MEETINGS_DESC]]>
+        </message>
+	</layout>
+</metadata>

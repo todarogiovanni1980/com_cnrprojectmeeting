@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    <field name="ordering"/>
+    <field name="title" filter="string" type="text" required="true" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_TITLE" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_TITLE" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_TITLE"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="startdate" class="inputbox" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_STARTDATE" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_STARTDATE" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_STARTDATE"/>
+    <field name="enddate" class="inputbox" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_ENDDATE" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_ENDDATE" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_ENDDATE"/>
+    <field name="host" filter="html" type="text" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_HOST" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_HOST" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_HOST"/>
+    <field name="location" filter="string" type="text" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_LOCATION" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_LOCATION" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_LOCATION"/>
+    <field name="description" buttons="false" filter="JComponentHelper::filterText" type="editor" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_DESCRIPTION" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_DESCRIPTION" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_DESCRIPTION"/>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+    <field name="photogallery" directory="/images/meetingsphotogallery/" type="media" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_PHOTOGALLERY" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_PHOTOGALLERY" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_PHOTOGALLERY"/>
+    <field name="agenda" type="FileMultiple" label="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_AGENDA" description="COM_CNRPROJECTMEETING_FORM_DESC_MEETING_AGENDA" hint="COM_CNRPROJECTMEETING_FORM_LBL_MEETING_AGENDA"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+  <fieldset name="accesscontrol">
+    <field name="asset_id" type="hidden" filter="unset"/>
+    <field name="rules" type="rules" label="JFIELD_RULES_LABEL" translate_label="false" filter="rules" validate="rules" class="inputbox" component="com_cnrprojectmeeting" section="meeting"/>
+  </fieldset>
+</form>
